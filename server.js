@@ -7,6 +7,6 @@ app.get('/', (req, res) => {
   res.send(events);
 });
 
-app.listen('3000', () => {
-  console.log('App Listening on port: 3000');
+app.listen('3030', () => {
+  console.log('App Listening on port: 3030');
 });
