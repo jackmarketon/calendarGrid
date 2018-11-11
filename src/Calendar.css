@@ -1,0 +1,41 @@
+.Calendar {
+    display: flex;
+    position: relative;
+    width: 70%;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.CalendarBody {
+    display: grid;
+    background: #000000;
+    border: 1px solid #000000;
+    grid-gap: 1px;
+    overflow: scroll;
+    justify-items: stretch;
+    align-items: stretch;
+    justify-content: stretch;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: 40px auto;
+}
+
+.CalendarHeader {
+    padding: 10px;
+    background: #FFFFFF;
+}
+
+.Header {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto 20px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.Link {
+    text-decoration: none;
+    color: #000;
+    cursor: pointer;
+    margin: 0 20px;
+}

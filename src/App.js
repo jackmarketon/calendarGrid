@@ -8,12 +8,19 @@ class App extends Component {
     return (
       <Router>
         <Switch>
-          <Route path="/calendar/:year/:month" component={Calendar} />
+          <Route path="/calendar/:year/:month" render={(props) => {
+            const { match: { params: { month, year } } } = props;
+            if (month < 13 && month > 0 && year >= 1990) {
+              return <Calendar {...props} />;
+            }
+            const currDate = Date.now();
+            return <Redirect
+              to={`/calendar/${getYear(currDate)}/${getMonth(currDate) + 1}`} />;
+          }} />
           <Route render={() => {
             const currDate = Date.now();
-            const month = getMonth(currDate);
-            const year = getYear(currDate);
-            return <Redirect to={`/calendar/${year}/${month}`} />;
+            return <Redirect
+              to={`/calendar/${getYear(currDate)}/${getMonth(currDate) + 1}`} />;
           }} />
         </Switch>
       </Router>
