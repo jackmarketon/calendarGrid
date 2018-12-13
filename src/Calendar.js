@@ -76,13 +76,16 @@ class Calendar extends Component {
         return { ...acc, [day]: [event] };
       }, {});
     const totalDays = getDaysInMonth(this.props.date);
-    return Array(totalDays).fill('').map((_, idx) => (
-      <Day
-        key={uuid()}
-        date={addDays(idx, this.props.date)}
-        events={eventsThisMonthPerDay[idx + 1]}
-      />
-    ));
+    return Array(totalDays).fill('').map((_, idx) => {
+      const date = addDays(idx, this.props.date)
+      return (
+        <Day
+          key={data}
+          date={date}
+          events={eventsThisMonthPerDay[idx + 1]}
+        />
+      );
+    });
   };
 
   renderPaddedDates = () => {
